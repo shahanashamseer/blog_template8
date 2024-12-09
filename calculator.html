@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,intial-scale=1.0">
+
+    <title>calculator</title>
+    <style>
+        #calculator{
+            background-color: black;
+            border-radius: 15px;
+            max-width: 500px;
+            overflow: hidden;
+
+        }
+        #display{
+            width:100%;
+            padding:20px;
+            font-size: 5rem;
+            text-align: left;
+            border:none;
+            background-color:gray;
+            color: white;
+
+        }
+        #keys{
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:5px;
+            padding:10px;
+        }
+        button{
+            width:100px;
+            height:100px;
+            border-radius: 50px;
+            border:none;
+            background-color: grey;
+            color:white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: grey;
+
+        }
+        .operator-button{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input id="display"read only>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')" class="operator-button">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="operator-button">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator-button">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="operator-button">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()" class="operator-button">=</button>
+            <button onclick="clearDisplay()" class="operator-button">C</button>
+        </div>
+    </div>
+    <script>
+        const display = document.getElementById('display');
+        function appendToDisplay(value){
+            display.value +=value;
+        }
+        function clearDisplay(){
+            display.value="";
+        }
+   function calculate()
+    {
+        let expression=display.value;
+       let n1=parseFloat(expression.split(/[+\-*/]/)[0].trim());
+       let n2=parseFloat(expression.split(/[+\-*/]/)[1].trim());
+       let operator=expression.replace(/[0-9.]/g,'').trim();
+       let result;
+       switch (operator){
+        case '+':
+            result=n1+n2;
+            break;
+         case '-':
+                result=n1-n2;
+                break;
+                case '*':
+              result=n1*n2;
+              break;
+              case '/':
+           result=n1/n2;
+        break;
+    default:'error:invalid operator';    
+   } 
+       display.value=result;
+
+        
+
+    }
+        
+      
+                
+    
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+         
+
+    </script>
+</body>
+</html>
