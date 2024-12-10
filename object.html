@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <title>document</title>
+</head>
+<body>
+    <script>
+        var order ={
+            ordernumber:10011,
+            customername:'vineesh',
+            customermobile:'+911222111',
+            subtotal:25000,
+            taxamount:490,
+            
+        
+           total: function (){
+    
+            console.log(this.subtotal+this.taxamount);
+            document.write(this.subtotal+this.taxamount);
+            }
+        }
+            order.total();
+
+        
+    </script>
+
+</body>
+</html>
